@@ -14,10 +14,10 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
 <div class="testbox">
-  <h1>Registration</h1>
+  <h1>Login</h1>
 
 
-  <form action="/form.jsp" method ="post">
+  <form action="/form.jsp" method ="get">
   
   <label id="icon" for="userId"><i class="icon-user"></i></label>
   <input type="text" name="userId" id="userId" placeholder="Id" required/>    
@@ -28,10 +28,6 @@
   
   <input type="submit" class="button" value="Submit"></input>
   </form>
-  
-  <a href="/login.jsp">
-  	<h2>login은 이쪽으로</h2>
-  </a>
 </div>
 
 </body> 

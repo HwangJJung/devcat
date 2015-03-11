@@ -3,14 +3,12 @@ package net.my.user;
 public class User {
 	private String userId;
 	private String password;
-	private String name;
 	private String email;
 	
-	public User(String userId, String password, String name, String email) {
+	public User(String userId, String password, String email) {
 		super();
 		this.userId = userId;
 		this.password = password;
-		this.name = name;
 		this.email = email;
 	}
 	
@@ -30,14 +28,14 @@ public class User {
 		this.password = password;
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
+//	public String getName() {
+//		return name;
+//	}
+//	
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//	
 	public String getEmail() {
 		return email;
 	}
@@ -48,7 +46,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", email=" + email
+		return "User [userId=" + userId + ", email=" + email
 				+ "]";
 	}
 	
