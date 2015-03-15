@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>ChocoBanana</title>
 
     <!-- Bootstrap core CSS -->
     <link href="commons/css/bootstrap.min.css" rel="stylesheet">

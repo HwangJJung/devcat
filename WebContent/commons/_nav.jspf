@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
+	
+	<%
+		Object userId = session.getAttribute("userId");
+	%>
+	
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -14,9 +19,20 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href="/login.jsp">Login</a></li>
-				<li><a href="/signup.jsp">Sign Up</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+	<%
+		if(userId == null) {		
+	%>			
+		<li><a href="/login.jsp">Login</a></li>
+		<li><a href="/signup.jsp">SignUp</a></li>
+	<% 	
+		} else {
+	%>		
+		<li><a href="/user/logout">Logout</a></li>
+		<li><a href="/mypage.jsp">Modify</a></li>
+	<%
+		}	
+	%>
+				<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="/mypage.jsp">Mypage</a></li>
@@ -26,7 +42,7 @@
 						<li class="dropdown-header">Nav header</li>
 						<li><a href="#">Separated link</a></li>
 						<li><a href="#">One more separated link</a></li>
-					</ul></li>
+					</ul></li> -->
 			</ul>
 			<form class="navbar-form navbar-right">
 				<div class="form-group">

@@ -3,12 +3,6 @@
 <%@ page import="net.my.user.User"%>
 <%@ page import="net.my.db.Database"%>
 
-
-<%
-	Object userId = session.getAttribute("userId");
-	// Object userId = session.getAttribute("userId");
-	User user = Database.show(userId.toString());
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,6 +21,9 @@
 <body>
 
 	<%@ include file="./commons/_nav.jspf"%>
+	<%
+		User user = Database.FindbyId(userId.toString());
+	%>
 	<div class="container">
 		<div class="testbox">
 			<h1>MyPage</h1>

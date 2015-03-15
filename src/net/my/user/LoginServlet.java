@@ -8,27 +8,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.my.db.Database;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/foo")
+@WebServlet("/user/login")
 public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		
 		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
 		
-		User user = Database.FindbyId(userId);
-		
-		if(user == null){
-			//사용자가 존재하지 않는다는 것을 에러 메시지 전송 
+		try {
+			if(User.login(userId, password)) {
+				session.setAttribute("userId", userId);
+			}
+		} catch (UserNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PasswordMismatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		if(password.equals(user.getPassword())){
-			//로그인 처리  
-		}
-		
-		// TODO Auto-generated method stub
+		response.sendRedirect("/");
 	}
 }

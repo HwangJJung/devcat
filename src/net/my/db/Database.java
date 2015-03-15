@@ -26,7 +26,6 @@ public class Database {
 	}
 
 	public static User FindbyId(String userId) {
-	
 		return users.get(userId);
 	}
 }
