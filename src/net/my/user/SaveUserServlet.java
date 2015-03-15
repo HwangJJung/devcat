@@ -23,18 +23,16 @@ public class SaveUserServlet extends HttpServlet {
 		User user = new User(userId,password,email);
 		
 		try { // 우리 사용자가 아닌 분이 새로 왔을 때.
-			HttpSession session = request.getSession();
-			
 			//회원가입하는 부분
 			User.signUp(user);
+			HttpSession session = request.getSession();
 			session.setAttribute("userId", userId);
 			response.sendRedirect("/index.jsp");
 		} catch(UserFoundException e) {
 			// 이미 존재하는 분일 경우
 			request.setAttribute("errorMessage", "이미 존재한다능. 다시 ID 써주떼욤");
 			RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
-			rd.forward(request, response);
-	
+			rd.forward(request, response);∂§
 		}
 	}
 }

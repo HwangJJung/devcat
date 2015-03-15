@@ -21,20 +21,20 @@
 <body>
 
 	<%@ include file="./commons/_nav.jspf"%>
-	<%
-		User user = Database.FindbyId(userId.toString());
-	%>
+	
+	<!--  User user = Database.FindbyId(${userId});  -->
+	
 	<div class="container">
 		<div class="testbox">
 			<h1>MyPage</h1>
-			<form action="/user/modify" method="post">
+			<form action="/user/update" method="post">
 
 				<label id="icon" for="userId"><i class="icon-user"></i></label> <input
 					type="text" name="userId" id="userId" placeholder="id"
-					value="<%=user.getUserId()%>" readonly required /> <label
+					value="${userId}" readonly required /> <label
 					id="icon" for="email"><i class="icon-envelope "></i></label> <input
 					type="text" name="email" id="email" placeholder="E-mail"
-					value="<%=user.getEmail()%>" required /> <label id="icon"
+					value="${userMail}" required /> <label id="icon"
 					for="Password"><i class="icon-shield"></i></label> <input
 					type="password" name="password" id="password"
 					placeholder="Password" required /> <input type="submit"

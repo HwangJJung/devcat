@@ -24,19 +24,11 @@
 			<form action="/user/signup" method="post">
 			
 			
-<%
-	Object errorMessage = request.getAttribute("errorMessage");
-	if(errorMessage != null) {
-	
-%>
+<c:if test="${not empty errorMessage}">	
 	 <div class = "control-group">
-	 <label class = "error"><% out.println(errorMessage); %></label>
+	 <label class = "error">${errorMessage}</label>
 	 </div>
-
-<%
-	}
-%>
-
+	</c:if>
 				<label id="icon" for="userId"><i class="icon-user"></i></label> <input
 					type="text" name="userId" id="userId" placeholder="Id" required />
 				<label id="icon" for="email"><i class="icon-envelope "></i></label>

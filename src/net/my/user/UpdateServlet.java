@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.my.db.Database;
 
-@WebServlet("/user/modify")
+@WebServlet("/user/update")
 public class UpdateServlet extends HttpServlet {
 
 	
@@ -26,13 +26,18 @@ public class UpdateServlet extends HttpServlet {
 
 		User user = new User(userId, password, email);
 
-		if (Database.CheckUser(userId)) { 
-			Database.modify(user);
-			System.out.println(user);
-			response.sendRedirect("/index.jsp");
-		} else {
-			// 우리 사용자가 아닌 분이 새로 왔을 때.
-			// 회원가입하는 부분
+		try {
+			if (Database.checkUser(userId)) { 
+				Database.modify(user);
+				System.out.println(user);
+				response.sendRedirect("/index.jsp");
+			} else {
+				// 우리 사용자가 아닌 분이 새로 왔을 때.
+				// 회원가입하는 부분
+			}
+		} catch (InvalidAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}

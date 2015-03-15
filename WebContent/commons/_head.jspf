@@ -4,3 +4,5 @@
 <title>ChocoBanana</title>
 <link href="http://localhost:8080/commons/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://localhost:8080/commons/css/jumbotron.css" rel="stylesheet">
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  
