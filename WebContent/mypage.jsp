@@ -5,7 +5,7 @@
 
 
 <%
-	Object userId = request.getParameter("userId");
+	Object userId = session.getAttribute("userId");
 	// Object userId = session.getAttribute("userId");
 	User user = Database.show(userId.toString());
 %>

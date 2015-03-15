@@ -1,5 +1,7 @@
 package net.my.user;
 
+import net.my.db.Database;
+
 public class User {
 	private String userId;
 	private String password;
@@ -16,32 +18,28 @@ public class User {
 		return userId;
 	}
 	
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 	
 	public String getPassword() {
 		return password;
 	}
 	
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	
-//	public String getName() {
-//		return name;
-//	}
-//	
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//	
 	public String getEmail() {
 		return email;
 	}
 	
-	public void setEmail(String email) {
-		this.email = email;
+	
+	public boolean matchPassword(String newPassword) {
+		return this.password.equals(newPassword);
+	}
+	
+	public static boolean login(String userId, String password) throws UserNotFoundException , PasswordMismatchException {
+		User user = Database.FindbyId(userId);
+		if(user ==null) throw new UserNotFoundException();
+		if(!user.matchPassword(password)){
+			throw new PasswordMismatchException();
+		}
+		return true;
 	}
 
 	@Override
@@ -49,7 +47,8 @@ public class User {
 		return "User [userId=" + userId + ", email=" + email
 				+ "]";
 	}
-	
+
+
 	
 }
 

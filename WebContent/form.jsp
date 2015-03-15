@@ -14,6 +14,7 @@
 		//회원가입하는 부분
 		Database.addUser(user);
 		session.setAttribute("userId", userId);
+		response.sendRedirect("index.jsp");
 	} else {
 		// 이미 존재하는 분일 경우
 		// 이거를 로그인 요청이라고 가정하자.
@@ -22,4 +23,3 @@
 		response.sendRedirect("/mypage.jsp?userId="+userId);
 	}
 %>
-<%=user%>

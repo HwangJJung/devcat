@@ -24,4 +24,9 @@ public class Database {
 	public static void modify(User user) {
 		users.replace(user.getUserId(), user);
 	}
+
+	public static User FindbyId(String userId) {
+	
+		return users.get(userId);
+	}
 }
