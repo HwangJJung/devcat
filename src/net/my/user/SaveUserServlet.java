@@ -32,7 +32,7 @@ public class SaveUserServlet extends HttpServlet {
 			// 이미 존재하는 분일 경우
 			request.setAttribute("errorMessage", "이미 존재한다능. 다시 ID 써주떼욤");
 			RequestDispatcher rd = request.getRequestDispatcher("/signup.jsp");
-			rd.forward(request, response);∂§
+			rd.forward(request, response);
 		}
 	}
 }
