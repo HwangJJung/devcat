@@ -33,9 +33,17 @@ public class User {
 		return this.password.equals(newPassword);
 	}
 	
+	public static boolean signUp(User user) throws UserFoundException {
+		User dbuser = Database.FindbyId(user.getUserId());
+		System.out.println(dbuser);
+		if(dbuser != null) throw new UserFoundException();
+		Database.addUser(user);
+		return true;
+	}
+	
 	public static boolean login(String userId, String password) throws UserNotFoundException , PasswordMismatchException {
 		User user = Database.FindbyId(userId);
-		if(user ==null) throw new UserNotFoundException();
+		if(user == null) throw new UserNotFoundException();
 		if(!user.matchPassword(password)){
 			throw new PasswordMismatchException();
 		}

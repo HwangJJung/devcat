@@ -18,7 +18,20 @@ public class UserTest {
 	public void notMatchPassword() {
 		assertFalse(TEST_USER.matchPassword("password2"));
 	}
-
+	
+	@Test
+	public void signUp() throws Exception {
+		User user =  new User("userId2","password","javajigi@slipp.net");
+		assertTrue(User.signUp(user));
+	}
+	
+	@Test(expected=UserFoundException.class)
+	public void signUpWhenExistedUser() throws Exception {
+		User user =  new User("userId2","password","javajigi@slipp.net");
+		Database.addUser(user);	
+		User.signUp(user);
+	}
+	
 	@Test
 	public void login() throws Exception {
 		User user = UserTest.TEST_USER;

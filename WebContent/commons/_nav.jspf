@@ -28,7 +28,7 @@
 		} else {
 	%>		
 		<li><a href="/user/logout">Logout</a></li>
-		<li><a href="/mypage.jsp">Modify</a></li>
+		<li><a href="/mypage.jsp?userId="<% userId.toString();%>>Modify</a></li>
 	<%
 		}	
 	%>

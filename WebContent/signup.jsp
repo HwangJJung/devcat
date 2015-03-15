@@ -21,7 +21,21 @@
 	<div class="container">
 		<div class="testbox">
 			<h1>Registration</h1>
-			<form action="/form.jsp" method="post">
+			<form action="/user/signup" method="post">
+			
+			
+<%
+	Object errorMessage = request.getAttribute("errorMessage");
+	if(errorMessage != null) {
+	
+%>
+	 <div class = "control-group">
+	 <label class = "error"><% out.println(errorMessage); %></label>
+	 </div>
+
+<%
+	}
+%>
 
 				<label id="icon" for="userId"><i class="icon-user"></i></label> <input
 					type="text" name="userId" id="userId" placeholder="Id" required />
