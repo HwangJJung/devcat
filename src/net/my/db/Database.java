@@ -20,4 +20,8 @@ public class Database {
 	public static boolean CheckUser(String userId) {
 		return users.containsKey(userId);
 	}
+	
+	public static void modify(User user) {
+		users.replace(user.getUserId(), user);
+	}
 }

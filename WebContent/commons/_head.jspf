@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ChocoBanana</title>
-<link href="./commons/style.css" rel="stylesheet">
-
+<link href="commons/css/bootstrap.min.css" rel="stylesheet">
+  <link href="commons/css/jumbotron.css" rel="stylesheet">

@@ -5,8 +5,6 @@
 <head>
 
 <%@ include file="./commons/_head.jspf"%>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600'
 	rel='stylesheet' type='text/css'>
@@ -17,13 +15,13 @@
 </head>
 
 <body>
+
+
 	<%@ include file="./commons/_nav.jspf"%>
-	 
 	<div class="container">
 		<div class="testbox">
-			<h1>Login</h1>
-
-			<form action="/form.jsp" method="get">
+			<h1>Registration</h1>
+			<form action="/form.jsp" method="post">
 
 				<label id="icon" for="userId"><i class="icon-user"></i></label> <input
 					type="text" name="userId" id="userId" placeholder="Id" required />
@@ -34,6 +32,10 @@
 					id="password" placeholder="Password" required /> <input
 					type="submit" class="button" value="Submit"></input>
 			</form>
+
+			<a href="/login.jsp">
+				<h2>login은 이쪽으로</h2>
+			</a>
 		</div>
 	</div>
 	<%@ include file="./commons/_footer.jspf"%>
